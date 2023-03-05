@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/random-array-betaprime",
-  "version": null,
+  "version": "0.0.0",
   "description": "Create an array containing pseudorandom numbers drawn from a beta prime distribution.",
   "license": "Apache-2.0",
   "author": {

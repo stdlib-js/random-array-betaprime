@@ -394,8 +394,8 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/random-array-betaprime.svg
 [npm-url]: https://npmjs.org/package/@stdlib/random-array-betaprime
 
-[test-image]: https://github.com/stdlib-js/random-array-betaprime/actions/workflows/test.yml/badge.svg?branch=vnull
-[test-url]: https://github.com/stdlib-js/random-array-betaprime/actions/workflows/test.yml?query=branch:vnull
+[test-image]: https://github.com/stdlib-js/random-array-betaprime/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/random-array-betaprime/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/random-array-betaprime/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/random-array-betaprime?branch=main
@@ -408,7 +408,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 

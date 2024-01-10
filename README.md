@@ -92,6 +92,29 @@ var out = betaprime( 10, 2.0, 5.0, opts );
 // returns [...]
 ```
 
+#### betaprime.assign( alpha, beta, out )
+
+Fills an array with pseudorandom numbers drawn from a [beta prime][@stdlib/random/base/betaprime] distribution.
+
+```javascript
+var zeros = require( '@stdlib/array-zeros' );
+
+var x = zeros( 10, 'float64' );
+// returns <Float64Array>
+
+var out = betaprime.assign( 2.0, 5.0, x );
+// returns <Float64Array>
+
+var bool = ( out === x );
+// returns true
+```
+
+The function has the following parameters:
+
+-   **alpha**: first shape parameter.
+-   **beta**: second shape parameter.
+-   **out**: output array.
+
 #### betaprime.factory( \[alpha, beta, ]\[options] )
 
 Returns a function for creating arrays containing pseudorandom numbers drawn from a [beta prime][@stdlib/random/base/betaprime] distribution.
@@ -106,7 +129,7 @@ var len = out.length;
 // returns 10
 ```
 
-If provided `alpha` and `beta`, the returned generator returns random variates from the specified distribution.
+If provided distribution parameters, the returned generator returns random variates from the specified distribution.
 
 ```javascript
 var random = betaprime.factory( 2.0, 5.0 );
@@ -118,7 +141,7 @@ out = random( 10 );
 // returns <Float64Array>
 ```
 
-If not provided `alpha` and `beta`, the returned generator requires that both parameters be provided at each invocation.
+If not provided distribution parameters, the returned generator requires that distribution parameters be provided at each invocation.
 
 ```javascript
 var random = betaprime.factory();
@@ -362,13 +385,6 @@ logEach( '%f', x4 );
 
 <section class="related">
 
-* * *
-
-## See Also
-
--   <span class="package-name">[`@stdlib/random-base/betaprime`][@stdlib/random/base/betaprime]</span><span class="delimiter">: </span><span class="description">beta prime distributed pseudorandom numbers.</span>
--   <span class="package-name">[`@stdlib/random-strided/betaprime`][@stdlib/random/strided/betaprime]</span><span class="delimiter">: </span><span class="description">fill a strided array with pseudorandom numbers drawn from a beta prime distribution.</span>
-
 </section>
 
 <!-- /.related -->
@@ -449,12 +465,6 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
 [@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
-
-<!-- <related-links> -->
-
-[@stdlib/random/strided/betaprime]: https://github.com/stdlib-js/random-strided-betaprime
-
-<!-- </related-links> -->
 
 </section>
 

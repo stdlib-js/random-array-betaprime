@@ -35,20 +35,30 @@ limitations under the License.
 
 > Create an array containing pseudorandom numbers drawn from a [beta prime][@stdlib/random/base/betaprime] distribution.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-betaprime
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import betaprime from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-betaprime@deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-betaprime@deno/mod.js';
+var betaprime = require( '@stdlib/random-array-betaprime' );
 ```
 
 #### betaprime( len, alpha, beta\[, options] )
@@ -82,6 +92,29 @@ var out = betaprime( 10, 2.0, 5.0, opts );
 // returns [...]
 ```
 
+#### betaprime.assign( alpha, beta, out )
+
+Fills an array with pseudorandom numbers drawn from a [beta prime][@stdlib/random/base/betaprime] distribution.
+
+```javascript
+var zeros = require( '@stdlib/array-zeros' );
+
+var x = zeros( 10, 'float64' );
+// returns <Float64Array>
+
+var out = betaprime.assign( 2.0, 5.0, x );
+// returns <Float64Array>
+
+var bool = ( out === x );
+// returns true
+```
+
+The function has the following parameters:
+
+-   **alpha**: first shape parameter.
+-   **beta**: second shape parameter.
+-   **out**: output array.
+
 #### betaprime.factory( \[alpha, beta, ]\[options] )
 
 Returns a function for creating arrays containing pseudorandom numbers drawn from a [beta prime][@stdlib/random/base/betaprime] distribution.
@@ -96,7 +129,7 @@ var len = out.length;
 // returns 10
 ```
 
-If provided `alpha` and `beta`, the returned generator returns random variates from the specified distribution.
+If provided distribution parameters, the returned generator returns random variates from the specified distribution.
 
 ```javascript
 var random = betaprime.factory( 2.0, 5.0 );
@@ -108,7 +141,7 @@ out = random( 10 );
 // returns <Float64Array>
 ```
 
-If not provided `alpha` and `beta`, the returned generator requires that both parameters be provided at each invocation.
+If not provided distribution parameters, the returned generator requires that distribution parameters be provided at each invocation.
 
 ```javascript
 var random = betaprime.factory();
@@ -131,7 +164,7 @@ The function accepts the following `options`:
 To use a custom PRNG as the underlying source of uniformly distributed pseudorandom numbers, set the `prng` option.
 
 ```javascript
-import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd@deno/mod.js';
+var minstd = require( '@stdlib/random-base-minstd' );
 
 var opts = {
     'prng': minstd.normalized
@@ -194,7 +227,7 @@ var seed = betaprime.seed;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = betaprime.factory( 2.0, 5.0, {
     'prng': minstd
@@ -216,7 +249,7 @@ var len = betaprime.seedLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = betaprime.factory( 2.0, 5.0, {
     'prng': minstd
@@ -238,7 +271,7 @@ var state = betaprime.state;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = betaprime.factory( 2.0, 5.0, {
     'prng': minstd
@@ -260,7 +293,7 @@ var len = betaprime.stateLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = betaprime.factory( 2.0, 5.0, {
     'prng': minstd
@@ -282,7 +315,7 @@ var sz = betaprime.byteLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = betaprime.factory( 2.0, 5.0, {
     'prng': minstd
@@ -314,8 +347,8 @@ var sz = random.byteLength;
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
-import betaprime from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-betaprime@deno/mod.js';
+var logEach = require( '@stdlib/console-log-each' );
+var betaprime = require( '@stdlib/random-array-betaprime' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = betaprime.factory( 2.0, 5.0, {
@@ -352,13 +385,6 @@ logEach( '%f', x4 );
 
 <section class="related">
 
-* * *
-
-## See Also
-
--   <span class="package-name">[`@stdlib/random-base/betaprime`][@stdlib/random/base/betaprime]</span><span class="delimiter">: </span><span class="description">beta prime distributed pseudorandom numbers.</span>
--   <span class="package-name">[`@stdlib/random-strided/betaprime`][@stdlib/random/strided/betaprime]</span><span class="delimiter">: </span><span class="description">fill a strided array with pseudorandom numbers drawn from a beta prime distribution.</span>
-
 </section>
 
 <!-- /.related -->
@@ -372,7 +398,7 @@ logEach( '%f', x4 );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -432,19 +458,13 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-betaprime/main/LICENSE
 
-[@stdlib/random/base/betaprime]: https://github.com/stdlib-js/random-base-betaprime/tree/deno
+[@stdlib/random/base/betaprime]: https://github.com/stdlib-js/random-base-betaprime
 
-[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes/tree/deno
+[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/deno
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/deno
-
-<!-- <related-links> -->
-
-[@stdlib/random/strided/betaprime]: https://github.com/stdlib-js/random-strided-betaprime/tree/deno
-
-<!-- </related-links> -->
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 </section>
 

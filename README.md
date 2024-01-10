@@ -385,6 +385,13 @@ logEach( '%f', x4 );
 
 <section class="related">
 
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/random-base/betaprime`][@stdlib/random/base/betaprime]</span><span class="delimiter">: </span><span class="description">beta prime distributed pseudorandom numbers.</span>
+-   <span class="package-name">[`@stdlib/random-strided/betaprime`][@stdlib/random/strided/betaprime]</span><span class="delimiter">: </span><span class="description">fill a strided array with pseudorandom numbers drawn from a beta prime distribution.</span>
+
 </section>
 
 <!-- /.related -->
@@ -465,6 +472,12 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
 [@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
+
+<!-- <related-links> -->
+
+[@stdlib/random/strided/betaprime]: https://github.com/stdlib-js/random-strided-betaprime
+
+<!-- </related-links> -->
 
 </section>
 
